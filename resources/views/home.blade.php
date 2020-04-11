@@ -19,5 +19,49 @@
             </div>
         </div>
     </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            <div class="card" style="height: 100%;">
+            <div class="card-header" style="display:flex; justify-content: space-between; align-items: center; background-color: rgba(0, 0, 0, 0.03);"><span>Friends</span></div>
+                {{-- @forelse (auth()->user()->friends as $friend) --}}
+                    <div class="card-body border-bottom">
+                        <div class="title">
+                            <h2>
+                                <a href="">
+                                    {{-- {{ $friend->name }} --}}
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                {{-- @empty --}}
+                    <p class="text-center pt-3">You have no friends yet :(</p>
+                {{-- @endforelse --}}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="height: 100%;">
+            <div class="card-header" style="display:flex; justify-content: space-between; align-items: center; background-color: rgba(0, 0, 0, 0.03);"><span>Not Friends</span></div>
+                {{-- @forelse (auth()->user()->friends as $friend) --}}
+                    <div class="card-body border-bottom">
+                        <div class="title">
+                            <h2>
+                                <a href="#">
+                                    {{-- {{ $friend->name }} --}}
+                                </a>
+                            </h2>
+                            <form action="#" method="">
+                                @csrf
+                                <button type="submit">
+                                    {{-- {{ $friend->name }} --}}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {{-- @empty --}}
+                    <p class="text-center pt-3">You have added all friends, no more left to add.</p>
+                {{-- @endforelse --}}
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
